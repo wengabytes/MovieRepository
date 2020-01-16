@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_vis_controller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="imageview_portrait_landscape,imageview_portrait,
+textview_name_label,textview_name,
+textview_genre_label,textview_genre,
+textview_advisory_rating_label,textview_advisory_rating,
+textview_duration_label,textview_duration,
+textview_release_date_label,textview_release_date,
+textview_synopsis_label,textview_synopsis,
+textview_casts_label,textview_casts,
+button_view_seat_map" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_start"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="An error has occured.\nTap to Retry." />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_portrait_landscape"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="H, 2.1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@color/colorPrimary" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_poster_landscape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="imageview_portrait_landscape" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_poster_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".40" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_portrait"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintDimensionRatio="H, 1:1.4"
+            app:layout_constraintEnd_toEndOf="@id/guideline_poster_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_start"
+            app:layout_constraintRight_toRightOf="@id/guideline_poster_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/barrier_poster_landscape"
+            tools:src="@color/colorPrimary" />
+
+        <!-- Name -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_name_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_name"
+            app:layout_constraintBottom_toTopOf="@id/textview_name"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/barrier_poster_landscape" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textview_genre_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_name_label"
+            tools:text="Ghost in the Shell" />
+
+        <!-- Genre -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_genre_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_genre"
+            app:layout_constraintBottom_toTopOf="@id/textview_genre"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_genre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textview_advisory_rating_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_genre_label"
+            tools:text="Action, Crime, Drama" />
+
+        <!-- Advisory Rating -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_advisory_rating_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_advisory_rating"
+            app:layout_constraintBottom_toTopOf="@id/textview_advisory_rating"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_genre" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_advisory_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textview_duration_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_advisory_rating_label"
+            tools:text="PG" />
+
+        <!-- Duration -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_duration_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_duration"
+            app:layout_constraintBottom_toTopOf="@id/textview_duration"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_advisory_rating" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_duration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textview_release_date_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_duration_label"
+            tools:text="2hrs" />
+
+        <!-- Release Date -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_release_date_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_release_date"
+            app:layout_constraintBottom_toTopOf="@id/textview_release_date"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_duration" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_release_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textview_synopsis_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_release_date_label"
+            tools:text="2017-03-29" />
+
+        <!-- Release Date -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_synopsis_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_synopsis"
+            app:layout_constraintBottom_toTopOf="@id/textview_synopsis"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_release_date" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_synopsis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textview_casts_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_synopsis_label"
+            tools:text="A cyborg policewoman attempts to bring down a nefarious computer hacker." />
+
+        <!-- Casts -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_casts_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_casts"
+            app:layout_constraintBottom_toTopOf="@id/textview_synopsis"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_synopsis" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_casts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_dummy"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_poster_end"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_poster_end"
+            app:layout_constraintTop_toBottomOf="@id/textview_casts_label"
+            tools:text="Scarlett Johansson1, Michael Wincott,  Michael Pitt" />
+
+        <View
+            android:id="@+id/view_dummy"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/button_view_seat_map"
+            app:layout_constraintTop_toBottomOf="@id/textview_casts" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_view_seat_map"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/flat_button_states"
+            android:text="@string/button_view_seat_map"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryTextLight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_dummy" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

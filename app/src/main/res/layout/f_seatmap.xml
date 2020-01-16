@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/spacing_default_twice">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorSeatMapBg"
+            app:layout_constraintBottom_toBottomOf="@id/grid_selected_seats_container"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorSelectionBg"
+            app:layout_constraintBottom_toBottomOf="@id/spinner_date"
+            app:layout_constraintTop_toTopOf="@id/spinner_date" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/spacing_default_twice" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/spacing_default_twice" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_theater_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_default_twice"
+            android:text="@string/label_theater"
+            app:layout_constraintEnd_toStartOf="@id/textview_theater"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_start"
+            app:layout_constraintRight_toLeftOf="@id/textview_theater"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_theater"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_default_half"
+            android:layout_marginLeft="@dimen/spacing_default_half"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/textview_theater_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toRightOf="@id/textview_theater_label"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toEndOf="@id/textview_theater_label"
+            app:layout_constraintTop_toTopOf="@id/textview_theater_label"
+            tools:text="Glorietta 4" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_theater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="textview_theater_label,textview_theater" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_default"
+            app:layout_constraintEnd_toStartOf="@id/spinner_cinema"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_start"
+            app:layout_constraintRight_toLeftOf="@id/spinner_cinema"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/barrier_theater"
+            tools:listitem="@android:layout/test_list_item" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_cinema"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_default"
+            android:layout_marginTop="@dimen/spacing_default"
+            android:layout_marginRight="@dimen/spacing_default"
+            app:layout_constraintEnd_toStartOf="@id/spinner_times"
+            app:layout_constraintLeft_toRightOf="@id/spinner_date"
+            app:layout_constraintRight_toLeftOf="@id/spinner_times"
+            app:layout_constraintStart_toEndOf="@id/spinner_date"
+            app:layout_constraintTop_toBottomOf="@id/barrier_theater"
+            tools:listitem="@android:layout/test_list_item" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_times"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_default"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toRightOf="@id/spinner_cinema"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toEndOf="@id/spinner_cinema"
+            app:layout_constraintTop_toBottomOf="@id/barrier_theater"
+            tools:listitem="@android:layout/test_list_item" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_cinema_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="spinner_date,spinner_cinema,spinner_times" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_available_legend"
+            android:layout_width="@dimen/spacing_default_twice"
+            android:layout_height="@dimen/spacing_default_twice"
+            android:layout_marginTop="@dimen/spacing_default"
+            android:background="@color/colorSeatAvailable"
+            app:layout_constraintEnd_toStartOf="@id/textview_available_label"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_start"
+            app:layout_constraintRight_toLeftOf="@id/textview_available_label"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/barrier_cinema_selection" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_available_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_default_half"
+            android:layout_marginLeft="@dimen/spacing_default_half"
+            android:layout_marginEnd="@dimen/spacing_default"
+            android:layout_marginRight="@dimen/spacing_default"
+            android:text="@string/label_available"
+            app:layout_constraintBottom_toBottomOf="@id/imageview_available_legend"
+            app:layout_constraintEnd_toStartOf="@id/imageview_reserved_legend"
+            app:layout_constraintLeft_toRightOf="@id/imageview_available_legend"
+            app:layout_constraintRight_toLeftOf="@id/imageview_reserved_legend"
+            app:layout_constraintStart_toEndOf="@id/imageview_available_legend"
+            app:layout_constraintTop_toTopOf="@id/imageview_available_legend" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_reserved_legend"
+            android:layout_width="@dimen/spacing_default_twice"
+            android:layout_height="@dimen/spacing_default_twice"
+            android:layout_marginStart="@dimen/spacing_default_half"
+            android:layout_marginLeft="@dimen/spacing_default_half"
+            android:layout_marginTop="@dimen/spacing_default"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@id/textview_reserved_label"
+            app:layout_constraintLeft_toRightOf="@id/textview_available_label"
+            app:layout_constraintRight_toLeftOf="@id/textview_reserved_label"
+            app:layout_constraintStart_toEndOf="@id/textview_available_label"
+            app:layout_constraintTop_toBottomOf="@id/barrier_cinema_selection" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_reserved_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_default_half"
+            android:layout_marginLeft="@dimen/spacing_default_half"
+            android:layout_marginEnd="@dimen/spacing_default"
+            android:layout_marginRight="@dimen/spacing_default"
+            android:text="@string/label_reserved"
+            app:layout_constraintBottom_toBottomOf="@id/imageview_reserved_legend"
+            app:layout_constraintEnd_toStartOf="@id/imageview_selected_legend"
+            app:layout_constraintLeft_toRightOf="@id/imageview_reserved_legend"
+            app:layout_constraintRight_toLeftOf="@id/imageview_selected_legend"
+            app:layout_constraintStart_toEndOf="@id/imageview_reserved_legend"
+            app:layout_constraintTop_toTopOf="@id/imageview_reserved_legend" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_selected_legend"
+            android:layout_width="@dimen/spacing_default_twice"
+            android:layout_height="@dimen/spacing_default_twice"
+            android:layout_marginStart="@dimen/spacing_default_half"
+            android:layout_marginLeft="@dimen/spacing_default_half"
+            android:layout_marginTop="@dimen/spacing_default"
+            app:layout_constraintEnd_toStartOf="@id/textview_selected_label"
+            app:layout_constraintLeft_toRightOf="@id/textview_reserved_label"
+            app:layout_constraintRight_toLeftOf="@id/textview_selected_label"
+            app:layout_constraintStart_toEndOf="@id/textview_reserved_label"
+            app:layout_constraintTop_toBottomOf="@id/barrier_cinema_selection"
+            app:srcCompat="@drawable/logo_seat_selected" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_selected_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_default_half"
+            android:layout_marginLeft="@dimen/spacing_default_half"
+            android:layout_marginEnd="@dimen/spacing_default"
+            android:layout_marginRight="@dimen/spacing_default"
+            android:text="@string/label_selected"
+            app:layout_constraintBottom_toBottomOf="@id/imageview_selected_legend"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toRightOf="@id/imageview_selected_legend"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toEndOf="@id/imageview_selected_legend"
+            app:layout_constraintTop_toTopOf="@id/imageview_selected_legend" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_legend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="imageview_available_legend,textview_available_label,
+imageview_reserved_legend,textview_reserved_label,
+imageview_selected_legend,textview_selected_label" />
+
+        <View
+            android:id="@+id/view_dummy_top"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/textview_movie_screen_label"
+            app:layout_constraintTop_toBottomOf="@id/barrier_legend" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_movie_screen_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_default_twice"
+            android:background="@drawable/cell_bg_rounded_allside"
+            android:gravity="center"
+            android:padding="@dimen/spacing_default_half"
+            android:text="@string/label_movie_screen"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/recycler_view_seats"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_start"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/view_dummy_top"
+            tools:visibility="visible" />
+
+        <com.wengabytes.movieviewer.utils.SeatMapRecyclerView
+            android:id="@+id/recycler_view_seats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_default"
+            android:layout_marginTop="@dimen/spacing_default"
+            android:layout_marginRight="@dimen/spacing_default"
+            app:layout_constraintBottom_toTopOf="@id/textview_selected_seat_label"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_movie_screen_label"
+            app:layout_constraintVertical_bias="0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_selected_seat_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_default_twice"
+            android:text="@string/label_your_selected_seats"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/grid_selected_seats_container"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_start"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view_seats"
+            tools:visibility="visible" />
+
+        <GridLayout
+            android:id="@+id/grid_selected_seats_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="5"
+            android:columnOrderPreserved="true"
+            android:paddingBottom="@dimen/spacing_default_twice"
+            android:rowCount="2"
+            android:rowOrderPreserved="true"
+            app:layout_constraintBottom_toTopOf="@id/view_dummy_bottom"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_start"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/textview_selected_seat_label" />
+
+        <View
+            android:id="@+id/view_dummy_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/barrier_total"
+            app:layout_constraintTop_toBottomOf="@id/grid_selected_seats_container" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="textview_total_label" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_total_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_default_twice"
+            android:layout_marginEnd="@dimen/spacing_default_half"
+            android:layout_marginRight="@dimen/spacing_default_half"
+            android:layout_marginBottom="@dimen/spacing_default_twice"
+            android:paddingTop="@dimen/spacing_default_twice"
+            android:text="@string/label_total"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/textview_total"
+            app:layout_constraintLeft_toLeftOf="@id/guideline_start"
+            app:layout_constraintRight_toLeftOf="@id/textview_total"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintVertical_bias="1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_default_half"
+            android:layout_marginLeft="@dimen/spacing_default_half"
+            android:gravity="end"
+            android:paddingTop="@dimen/spacing_default_twice"
+            app:layout_constraintBottom_toBottomOf="@id/textview_total_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintLeft_toRightOf="@id/textview_total_label"
+            app:layout_constraintRight_toRightOf="@id/guideline_end"
+            app:layout_constraintStart_toEndOf="@id/textview_total_label"
+            app:layout_constraintTop_toTopOf="@id/textview_total_label"
+            tools:text="Php 560.00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

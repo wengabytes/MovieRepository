@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/spacing_default_half">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_selected_seat"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorSeatSelected"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/spacing_default"
+        android:paddingTop="@dimen/spacing_default_half"
+        android:paddingRight="@dimen/spacing_default"
+        android:paddingBottom="@dimen/spacing_default_half"
+        tools:text="M34" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

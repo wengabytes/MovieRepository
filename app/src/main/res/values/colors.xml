@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="black">#FF000000</color>
+
+    <color name="colorButtonRed">#DA2423</color>
+
+    <color name="colorPrimaryText">#FF000000</color>
+    <color name="colorPrimaryTextLight">#FFFFFFFF</color>
+
+    <color name="colorSeatAvailable">#FFAAAAAA</color>
+    <color name="colorSeatReserved">@color/colorPrimary</color>
+    <color name="colorSeatSelected">#FFFF0000</color>
+
+    <color name="colorSeatMapBg">#4DD2D2D2</color>
+    <color name="colorSelectionBg">#7D3761B7</color>
+
+    <color name="colorFlatButtonDark">#A0A0A0</color>
+    <color name="colorFlatButtonLight">#E0E0E0</color>
+</resources>

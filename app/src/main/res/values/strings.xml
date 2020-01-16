@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Movie Viewer</string>
+
+    <!-- Network Error Messages -->
+    <string name="errmsg_no_internet_connectivity">Your device appears to have no internet connection. Please make sure you are connected to a network then try again.</string>
+    <string name="errmsg_ssl_handshake">Cannot verify the security certificate for this connection.</string>
+    <string name="errmsg_unexpected">Encountered an unexpected error</string>
+    <string name="errmsg_unavailable">Sorry, service is not available at this time. Please try again later.</string>
+    <string name="errmsg_timeout">Sorry, we are is experiencing some momentary delays.</string>
+
+    <string name="format_errmsg_retry">%1$s\n\n%2$s</string>
+    <string name="errmsg_tap_retry">Tap to Retry.</string>
+
+    <!-- Dialog -->
+    <string name="title_error_dialog">Error</string>
+    <string name="button_ok">OK</string>
+
+    <!-- Base -->
+    <string name="format_amount">Php %1$s</string>
+
+    <!-- Details Fragment -->
+    <string name="button_view_seat_map">View Seat Map</string>
+
+    <!-- SeatMap Fragment -->
+    <string name="label_name">Name:</string>
+    <string name="label_genre">Genre:</string>
+    <string name="label_advisory_rating">Advisory Rating</string>
+    <string name="label_duration">Duration</string>
+    <string name="label_release_date">Release Date</string>
+    <string name="label_synopsis">Synopsis</string>
+    <string name="label_casts">Casts</string>
+    <string name="label_theater">Theater:</string>
+    <string name="label_available">Available</string>
+    <string name="label_reserved">Reserved</string>
+    <string name="label_selected">Selected</string>
+    <string name="label_total">Total</string>
+    <string name="label_your_selected_seats">Your selected seats:</string>
+    <string name="errmsg_max_seats_selected">Only 10 seats can be selected per transaction.</string>
+    <string name="label_movie_screen">Movie Screen</string>
+</resources>
